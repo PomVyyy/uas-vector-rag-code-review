@@ -1,0 +1,23 @@
+======================================================================
+ MULTIPLE LINEAR REGRESSION MODEL COEFFICIENTS FOR log1p(time_to_merge)
+======================================================================
+               Predictor  Estimate  Std.Err  t value  Pr(>|t|) Signif
+             (Intercept)    3.2992   0.2049   16.098  0.000000    ***
+         is_gpt_assisted   -0.8572   0.0518  -16.563  0.000000    ***
+       log1p(no_commits)   -0.1013   0.0511   -1.982  0.047567      *
+          log1p(pr_size)   -0.0074   0.0223   -0.332  0.740268       
+ log1p(no_changed_files)   -0.0320   0.0411   -0.779  0.435860       
+log1p(project_age_month)   -0.0499   0.0450   -1.110  0.266883       
+
+R-squared: 0.0853
+Adjusted R-squared: 0.0838
+F-statistic: 55.87 on 5 and 2994 DF, p-value: 1.110e-16
+
+======================================================================
+ RQ2 MANN-WHITNEY U TEST RESULTS FOR PR PHASES
+======================================================================
+                Phase  Median_Assisted_h  Median_NonAssisted_h  Reduction_pct  MannWhitney_U  p_value  Significant
+        At Submission               1.22                  1.22           0.00      1130469.5 0.817657        False
+            At Review               1.00                  3.00          66.67        95884.5 0.000000         True
+At Waiting for Change               3.00                 24.00          87.50         5764.0 0.000000         True
+            At Change               1.00                  1.00           0.00      1127589.5 0.913085        False

@@ -1,0 +1,150 @@
+{
+  "n_samples": 3000,
+  "rq1_mlr": [
+    {
+      "Predictor": "(Intercept)",
+      "Estimate": 3.2992,
+      "Std.Err": 0.2049,
+      "t value": 16.098,
+      "Pr(>|t|)": 0.0,
+      "Signif": "***"
+    },
+    {
+      "Predictor": "is_gpt_assisted",
+      "Estimate": -0.8572,
+      "Std.Err": 0.0518,
+      "t value": -16.563,
+      "Pr(>|t|)": 0.0,
+      "Signif": "***"
+    },
+    {
+      "Predictor": "log1p(no_commits)",
+      "Estimate": -0.1013,
+      "Std.Err": 0.0511,
+      "t value": -1.982,
+      "Pr(>|t|)": 0.047566835864648604,
+      "Signif": "*"
+    },
+    {
+      "Predictor": "log1p(pr_size)",
+      "Estimate": -0.0074,
+      "Std.Err": 0.0223,
+      "t value": -0.332,
+      "Pr(>|t|)": 0.7402683014436424,
+      "Signif": " "
+    },
+    {
+      "Predictor": "log1p(no_changed_files)",
+      "Estimate": -0.032,
+      "Std.Err": 0.0411,
+      "t value": -0.779,
+      "Pr(>|t|)": 0.43586048085831797,
+      "Signif": " "
+    },
+    {
+      "Predictor": "log1p(project_age_month)",
+      "Estimate": -0.0499,
+      "Std.Err": 0.045,
+      "t value": -1.11,
+      "Pr(>|t|)": 0.26688338409036483,
+      "Signif": " "
+    }
+  ],
+  "rq1_metrics": {
+    "r_squared": 0.0853,
+    "adjusted_r_squared": 0.0838,
+    "f_statistic": 55.87,
+    "f_p_value": 1.1102230246251565e-16,
+    "median_time_to_merge_assisted_h": 8.899999999999999,
+    "median_time_to_merge_non_assisted_h": 22.700000000000003,
+    "pct_reduction": 60.79,
+    "mann_whitney_u": 829927.5,
+    "mann_whitney_p": 3.7177596698592265e-36
+  },
+  "rq2_phase_comparison": [
+    {
+      "Phase": "At Submission",
+      "Median_Assisted_h": 1.22,
+      "Median_NonAssisted_h": 1.22,
+      "Reduction_pct": 0.0,
+      "MannWhitney_U": 1130469.5,
+      "p_value": 0.8176574804888486,
+      "Significant": false
+    },
+    {
+      "Phase": "At Review",
+      "Median_Assisted_h": 1.0,
+      "Median_NonAssisted_h": 3.0,
+      "Reduction_pct": 66.67,
+      "MannWhitney_U": 95884.5,
+      "p_value": 0.0,
+      "Significant": true
+    },
+    {
+      "Phase": "At Waiting for Change",
+      "Median_Assisted_h": 3.0,
+      "Median_NonAssisted_h": 24.0,
+      "Reduction_pct": 87.5,
+      "MannWhitney_U": 5764.0,
+      "p_value": 0.0,
+      "Significant": true
+    },
+    {
+      "Phase": "At Change",
+      "Median_Assisted_h": 1.0,
+      "Median_NonAssisted_h": 1.0,
+      "Reduction_pct": 0.0,
+      "MannWhitney_U": 1127589.5,
+      "p_value": 0.9130854960337874,
+      "Significant": false
+    }
+  ],
+  "rq3_task_taxonomy": {
+    "Enhancement": {
+      "At Review %": 60.26,
+      "At Waiting for Change %": 42.31,
+      "At Change %": 35.9
+    },
+    "Bug Fix": {
+      "At Review %": 25.64,
+      "At Waiting for Change %": 15.38,
+      "At Change %": 21.8
+    },
+    "Documentation": {
+      "At Review %": 11.54,
+      "At Waiting for Change %": 12.82,
+      "At Change %": 10.26
+    },
+    "Implementation": {
+      "At Review %": 6.41,
+      "At Waiting for Change %": 10.26,
+      "At Change %": 8.97
+    },
+    "Testing": {
+      "At Review %": 1.28,
+      "At Waiting for Change %": 0.0,
+      "At Change %": 5.13
+    },
+    "Other": {
+      "At Review %": 12.82,
+      "At Waiting for Change %": 17.95,
+      "At Change %": 28.2
+    }
+  },
+  "novelty_detection_comparison": {
+    "Regex_Heuristics_Only": {
+      "Precision": 0.842,
+      "Recall": 0.795,
+      "F1_Score": 0.818,
+      "False_Positive_Rate": 0.158,
+      "Notes": "Vulnerable to false positives (e.g., project name with gpt, disk gpt) and misses conversational queries without explicit keywords"
+    },
+    "Oracle_23ai_Hybrid_Vector_Search": {
+      "Precision": 0.965,
+      "Recall": 0.952,
+      "F1_Score": 0.958,
+      "False_Positive_Rate": 0.035,
+      "Notes": "Combines token matching with 384-d semantic embedding distance, filtering false positives and capturing nuanced developer intentions"
+    }
+  }
+}
