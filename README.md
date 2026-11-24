@@ -303,7 +303,7 @@ Berdasarkan instruksi UAS, kode dan dataset harus dibagikan melalui GitHub kepad
    Buat repositori baru di akun GitHub Anda (misal bernama `uas-vector-rag-code-review`), lalu jalankan:
    ```bash
    git branch -M main
-   git remote add origin https://github.com/<username-anda>/uas-vector-rag-code-review.git
+   git remote add origin https://github.com/PomVyyy/uas-vector-rag-code-review.git
    git push -u origin main
    ```
 
